@@ -1,0 +1,133 @@
+apply plugin: 'com.android.application'
+apply plugin: 'realm-android'
+
+android {
+    compileSdkVersion rootProject.compileSdkVersion
+    buildToolsVersion rootProject.buildToolsVersion
+
+    defaultConfig {
+        applicationId "com.mobymagic.movies"
+
+        minSdkVersion rootProject.minSdkVersion
+        targetSdkVersion rootProject.targetSdkVersion
+
+        versionCode 1
+        versionName "0.0.1"
+
+        vectorDrawables.useSupportLibrary = true
+        renderscriptSupportModeEnabled true
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+
+    productFlavors {
+        // Define separate development and production product flavors.
+        development {
+            // dev utilizes minSDKVersion = 21 to allow the Android gradle plugin
+            // to pre-dex each module and produce an APK that can be tested on
+            // Android Lollipop without time consuming dex merging processes.
+            minSdkVersion 21
+        }
+        production {
+            // The actual minSdkVersion for the application.
+            minSdkVersion rootProject.minSdkVersion
+        }
+    }
+
+    buildTypes {
+        release {
+            debuggable false
+            minifyEnabled true
+            shrinkResources true
+
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            debuggable true
+            minifyEnabled false
+
+            applicationIdSuffix '.debug'
+            versionNameSuffix '-DEBUG'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility rootProject.sourceCompatibility
+        targetCompatibility rootProject.targetCompatibility
+    }
+
+    // Splitting by architecture, because realm makes the app too big if using just one apk
+    splits {
+        // Configures screen ABI split settings.
+        abi {
+
+            // Enables ABI APK splits.
+            enable true
+
+            // By default all ABIs are included, so use reset() and include to specify that we only
+            // want APKs for x86, armeabi-v7a, and mips.
+
+            // Resets the list of ABIs that Gradle should create APKs for to none.
+            reset()
+
+            // Specifies a list of ABIs that Gradle should create APKs for.
+            include "x86", "armeabi-v7a", "mips"
+
+            // Specifies that we do not want to also generate a universal APK that includes all ABIs.
+            universalApk false
+        }
+
+    }
+
+}
+
+/*
+ Dependency versions are defined in the top level build.gradle file. This helps keeping track of
+ all versions in a single place. This improves readability and helps managing project complexity.
+ */
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    // Support Libraries
+    compile "com.android.support:design:$rootProject.supportLibraryVersion"
+    compile "com.android.support:cardview-v7:$rootProject.supportLibraryVersion"
+    compile "com.android.support:palette-v7:$rootProject.supportLibraryVersion"
+    compile "com.android.support:support-v4:$rootProject.supportLibraryVersion"
+    compile "com.android.support:recyclerview-v7:$rootProject.supportLibraryVersion"
+    //compile "com.android.support:renderscript:$supportLibraryVersion"
+
+    // Glide
+    compile "com.github.bumptech.glide:glide:$rootProject.glideVersion"
+
+    // Retrofit
+    compile "com.squareup.retrofit2:retrofit:$rootProject.retrofit2Version"
+    compile "com.squareup.retrofit2:converter-gson:$rootProject.retrofit2Version"
+    compile "com.squareup.retrofit2:adapter-rxjava:$rootProject.retrofit2Version"
+
+    // OkHttp
+    compile "com.squareup.okhttp3:okhttp:$rootProject.okhttp3Version"
+    compile "com.squareup.okhttp3:mockwebserver:$rootProject.okhttp3Version"
+    compile "com.squareup.okhttp3:okhttp-urlconnection:$rootProject.okhttp3Version"
+    compile "com.squareup.okhttp3:logging-interceptor:$rootProject.okhttp3Version"
+
+    // LeakCanary
+    debugCompile "com.squareup.leakcanary:leakcanary-android-no-op:$rootProject.leakcanaryVersion"
+    releaseCompile "com.squareup.leakcanary:leakcanary-android-no-op:$rootProject.leakcanaryVersion"
+
+    // Butter Knife (Less sharper than a dagger)
+    compile "com.jakewharton:butterknife:$rootProject.butterknifeVersion"
+    annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.butterknifeVersion"
+
+    // Timber
+    compile "com.jakewharton.timber:timber:$rootProject.timberVersion"
+
+    // Misc
+    compile "de.hdodenhof:circleimageview:$rootProject.circleimageviewVersion"
+    compile "jp.wasabeef:recyclerview-animators:$rootProject.recyclerviewAnimatorsVersion"
+    compile "com.makeramen:roundedimageview:$rootProject.roundedimageviewVersion"
+
+    compile 'com.android.support:support-v4:25.3.1'
+}

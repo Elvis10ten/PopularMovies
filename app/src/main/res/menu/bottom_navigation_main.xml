@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/tab_popular_movies"
+        android:enabled="true"
+        android:icon="@drawable/ic_trending_up_white_24dp"
+        android:title="@string/tab_popular"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/tab_top_rated_movies"
+        android:enabled="true"
+        android:icon="@drawable/ic_star_white_24dp"
+        android:title="@string/tab_top_rated"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/tab_favorite_movies"
+        android:enabled="true"
+        android:icon="@drawable/ic_favorite_white_24dp"
+        android:title="@string/tab_favorites"
+        app:showAsAction="ifRoom" />
+
+</menu>

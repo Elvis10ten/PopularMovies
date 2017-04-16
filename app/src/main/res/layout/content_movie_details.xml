@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingTop="7dp"
+    android:paddingBottom="7dp"
+    android:clipToPadding="false"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_marginLeft="6dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginRight="6dp"
+            android:layout_marginEnd="6dp"
+            app:cardUseCompatPadding="true"
+            app:contentPadding="24dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/DetailTitleTextAppearance"
+                    android:text="@string/details_title_overview"/>
+
+                <TextView
+                    android:id="@+id/overview_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/DetailBodyTextAppearance"
+                    tools:text="This is the overview of a boring movie"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="8dp"
+                    android:textAppearance="@style/DetailTitleTextAppearance"
+                    android:text="@string/details_title_adult"/>
+
+                <TextView
+                    android:id="@+id/adult_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/DetailBodyTextAppearance"
+                    tools:text="$1B with a B"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="8dp"
+                    android:textAppearance="@style/DetailTitleTextAppearance"
+                    android:text="@string/details_title_original_language"/>
+
+                <TextView
+                    android:id="@+id/original_language_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/DetailBodyTextAppearance"
+                    tools:text="$2B"/>
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>

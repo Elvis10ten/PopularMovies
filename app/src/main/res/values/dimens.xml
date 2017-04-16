@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="status_bar_height">24dp</dimen>
+    <dimen name="appbar_padding_top">8dp</dimen>
+
+    <dimen name="regular_grid_width">160dp</dimen>
+    <dimen name="grid_spacing_small">0.5dp</dimen>
+    <dimen name="grid_spacing_regular">2dp</dimen>
+
+</resources>

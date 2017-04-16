@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">PopularMovies</string>
+    <string name="api_key"></string>
+
+    <!-- Home Bottom Tabs -->
+    <string name="tab_popular">Popular</string>
+    <string name="tab_top_rated">Top rated</string>
+    <string name="tab_favorites">Favorite</string>
+
+    <!-- Movies Page -->
+    <string name="content_desc_movie">Movie</string>
+    <string name="content_desc_error">Error</string>
+    <string name="msg_empty_movies">No available movies.</string>
+    <string name="action_retry">Retry</string>
+    <string name="msg_average_vote">%1$s rating</string>
+
+    <!-- Details Page -->
+    <string name="details_title_overview">Overview</string>
+    <string name="details_title_adult">18+</string>
+    <string name="details_title_original_language">Original language</string>
+    <string name="vote_average_over_vote_count">%1$s / %2$s</string>
+
+</resources>
